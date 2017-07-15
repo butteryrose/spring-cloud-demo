@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: service-1
+  cloud:
+    consul:
+    ## consul 服务地址
+      host: localhost
+      port: 8500
+      enabled: true
+      discovery:
+        ## 实例ID 多个实例就用多个id
+        instance-id: service-1
+        ## 服务名称 如果多个实例，那么服务名称是一样的，表示同一种服务组成了一个集群
+        service-name: demo-service
+        ## 本机服务地址
+        hostname: localhost
+        port: ${server.port}
+        ## 健康检查 地址及间隔
+        health-check-url: http://localhost:8080/health
+        health-check-interval: 10s
+        ## 服务标签
+        tags: dev

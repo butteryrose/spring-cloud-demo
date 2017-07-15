@@ -1,0 +1,14 @@
+zuul:
+  routes:
+    test:
+      path: /**
+      serviceId: demo-service
+spring:
+  cloud:
+    consul:
+    ## consul 服务地址
+      host: localhost
+      port: 8500
+      enabled: true
+server:
+  port: 8089
